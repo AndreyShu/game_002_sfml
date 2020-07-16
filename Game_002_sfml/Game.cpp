@@ -24,13 +24,39 @@ Game::~Game()
 }
 
 //Functions
+const bool Game::running() const
+{
+	return this->window->isOpen();
+}
+
+void Game::pollEvents()
+{
+	while (this->window->pollEvent(sfmlEvent))
+	{
+		switch (this->sfmlEvent.type)
+		{
+		case sf::Event::Closed:
+			this->window->close();
+			break;
+		case sf::Event::KeyPressed:
+			if(this->sfmlEvent.key.code == sf::Keyboard::Escape)
+			   this->window->close();
+		}
+	}
+}
+
 void Game::update()
 {
-
+	this->pollEvents();
 }
 
 void Game::render()
 {
+	this->window->clear();
 
+	//Render stuff
+	this->player.render(this->window);
+
+	this->window->display();
 }
 
