@@ -1,12 +1,18 @@
-#include <iostream>
+#include "Game.h"
 
-#include <SFML/Graphics.hpp>
-#include <SFML/System.hpp>
-#include <SFML/Audio.hpp>
-#include <SFML/Window.hpp>
-#include <SFML/Network.hpp>
+
 
 int main()
 {
+	//Initialize random seed
+	srand(static_cast<unsigned>(time(0)));
+
+	//Initialize game object
+	Game game;
+
+	//Game loop
+
+
+	//End of application
 	return 0;
 }
